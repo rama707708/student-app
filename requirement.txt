@@ -1,0 +1,19 @@
+
+Student data should store in session storage,
+
+Student id, name, subject, marks
+
+1 - Each student has an ID, Name, and marks for 5 subjects.
+
+2 - The system should calculate the average marks and assign a grade.
+
+3 - There are two types of students: RegularStudent: Grade is assigned as A+, A, B, C, D, or F based on average.
+ExchangeStudent: Grading is based on a pass/fail threshold of 60%. No letter grades.
+
+4 - The system should: Add, update, delete student records. 
+Search students by ID or name. 
+Display all students and their results. 
+
+Display the number of students in each grade category (or pass/fail for exchange students).
+
+5 - Changes must reflect in a shared list and operate
