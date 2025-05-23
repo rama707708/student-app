@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 declare var bootstrap: any;
 @Component({
@@ -8,8 +8,9 @@ declare var bootstrap: any;
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
-export class StudentComponent implements OnInit {
+export class StudentComponent implements OnInit, AfterViewInit {
   students: any = [];
+  modalRefAdd: any;
   constructor() {
   }
 
@@ -22,6 +23,20 @@ export class StudentComponent implements OnInit {
 
     )
   }
+
+  ngAfterViewInit() {
+    const modalElementAdd = document.getElementById('addModal');
+  
+    if (modalElementAdd) {
+      this.modalRefAdd = new bootstrap.Modal(modalElementAdd); // @ts-ignore for TS to ignore bootstrap global
+     
+    }
+   
+  }
+  onAddStudent(){
+    this.modalRefAdd.show();
+  }
+
 
   calculateGrade(rowdata: any) {
 
