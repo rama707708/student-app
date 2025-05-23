@@ -1,5 +1,8 @@
-<h1>Student Table</h1>
-
+<h3>Student Table</h3>
+<button type="button" class="btn btn-primary" (click)="onAddStudent()">
+  Add Student
+</button>
+<input type="search" id="search" (input)="searchStudents($event)" placeholder="Search by name" />
 <table>
 <tr>
 <th>Student ID</th>
@@ -7,7 +10,7 @@
 <th>Studenttype</th>
 <th>Grade</th>
 </tr>
-<tr *ngFor="let student of students">
+<tr *ngFor="let student of filterStudent">
 <td>{{student.id}}</td>
 <td>{{student.name}}</td>
 <td>{{student.studenttype}}</td>
@@ -15,9 +18,7 @@
 </tr>
 </table>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" (click)="onAddStudent()">
-  Add Student
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">

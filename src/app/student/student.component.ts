@@ -10,11 +10,13 @@ declare var bootstrap: any;
 })
 export class StudentComponent implements OnInit, AfterViewInit {
   students: any = [];
+  filterStudent: any = [];
   modalRefAdd: any;
   constructor() {
   }
 
   ngOnInit() {
+  
     this.students?.push({ name: 'kavya', id: '001', science: '50', maths: '10', english: '20', social: '80', computer: '50', studenttype: 'R' },
       { name: 'Idha', id: '002', science: '50', maths: '30', english: '80', social: '50', computer: '40', studenttype: 'E' },
       { name: 'Yuvin', id: '003', science: '30', maths: '60', english: '40', social: '50', computer: '60', studenttype: 'R' },
@@ -22,6 +24,7 @@ export class StudentComponent implements OnInit, AfterViewInit {
       { name: 'Kevin', id: '005', science: '50', maths: '50', english: '50', social: '50', computer: '50', studenttype: 'R' },
 
     )
+    this.filterStudent = this.students;
   }
 
   ngAfterViewInit() {
@@ -36,7 +39,17 @@ export class StudentComponent implements OnInit, AfterViewInit {
   onAddStudent(){
     this.modalRefAdd.show();
   }
+  searchStudents(event:any){
+    debugger;
+  const searchTerm = event.target.value.toLowerCase();
+  this.filterStudent= this.students.filter((student: any) =>
+      student.name.toLowerCase().includes(searchTerm)
+ 
+    );
+    
 
+    
+  }
 
   calculateGrade(rowdata: any) {
 
